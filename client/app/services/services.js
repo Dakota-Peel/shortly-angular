@@ -2,32 +2,32 @@ angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
   // Your code here
-  var getAll = function(data){
+  var getAll = function (data) {
     return $http({
       method: 'GET',
-      url:'/api/links',
+      url: '/api/links',
       data: data
     })
-    .then(function(resp){
-      console.log('testing',resp.data);
+    .then(function (resp) {
+      console.log('testing', resp.data);
       return resp.data;
     });
-  }; 
+  };
 
-  var addOne = function(link){
+  var addOne = function (link) {
     return $http({
       method: 'POST',
       url: '/api/links',
       data: link
     })
-    .then(function (resp){
+    .then(function (resp) {
       return resp;
-    })
+    });
   };
 
   return {
     getAll: getAll,
-    addOne: addOne 
+    addOne: addOne
   };
 })
 
